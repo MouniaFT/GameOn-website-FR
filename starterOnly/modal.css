@@ -208,7 +208,24 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+
+/* Afficher l'erreur */
+.error-message{
+  color: red;
+  font-size: 14px;
+  display: none;
+}
+
+.formData.error input{
+  border-color: red;
+}
+
+.formData.error .error-message{
+  display: block;
+}
+
+
+/*.formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -225,7 +242,7 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
-}
+}*/
 /* 
 input[data-error]::after {
     content: attr(data-error);
