@@ -111,7 +111,10 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                  onblur="validBirth()"
+                  oninput="validBirth()"
+                />
+                <span class="error-message">Veuillez entrer votre date de naissance valide.</span>
               </div>
               <div
                 class="formData">

@@ -32,7 +32,7 @@ btnClose.addEventListener("click", function(){
 // Ecouter l'évenement Submit
 form.addEventListener("submit" , function(e){
   
-  if (validPrenom() && validNom() && validEmail()){
+  if (validPrenom() && validNom() && validEmail() && validBirth()){
     form.submit();
   } else {
     e.preventDefault();
@@ -64,6 +64,15 @@ const isEmail = function(input){
   }
 };
 
+//vérifier si le champ est vide .
+const isEmpty = function(input) {
+  if (input.value == ""){
+    return true;
+  } else {
+    return false;
+  }
+  
+};
 
 // Vérifier le champ prénom
 
@@ -105,4 +114,20 @@ const validEmail = function(){
     return false;
   }
 
+};
+
+// Vérifier si une date de naissance est saisie et valide
+
+const validBirth = function() {
+
+  var dateEntred = new Date(form.birthdate.value);
+  var dateToday = new Date();
+  
+  if(isEmpty(form.birthdate) || (dateEntred.getTime() > dateToday.getTime())) {
+    form.birthdate.parentNode.classList.add("error");
+    return false;
+  } else {
+    form.birthdate.parentNode.classList.remove("error");
+    return true;
+  }
 };
