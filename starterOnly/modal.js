@@ -32,7 +32,7 @@ btnClose.addEventListener("click", function(){
 // Ecouter l'évenement Submit
 form.addEventListener("submit" , function(e){
   
-  if (validPrenom() && validNom() && validEmail() && validBirth()){
+  if (validPrenom() && validNom() && validEmail() && validBirth() && validQuantity() && validRadio() && validCheckbox()){
     form.submit();
   } else {
     e.preventDefault();
@@ -56,7 +56,7 @@ const isEmail = function(input){
 
   var emailRegExp = new RegExp(
     '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g'
-    );
+  );
   if (emailRegExp.test(input.value)) {
     return true;
   } else {
@@ -64,14 +64,22 @@ const isEmail = function(input){
   }
 };
 
-//vérifier si le champ est vide .
+// Vérifier si le champ est vide .
 const isEmpty = function(input) {
   if (input.value == ""){
     return true;
   } else {
     return false;
   }
-  
+};
+
+// Vérifier si un radio est coché
+const isChecked = function(radio) {
+  if (radio.checked) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Vérifier le champ prénom
@@ -116,14 +124,15 @@ const validEmail = function(){
 
 };
 
-// Vérifier si une date de naissance est saisie et valide
+// Vérifier le champ date de naissance
 
 const validBirth = function() {
-
+  // convertir la valeur saisie en Date
   var dateEntred = new Date(form.birthdate.value);
+  // récuperer la date du jour
   var dateToday = new Date();
   
-  if(isEmpty(form.birthdate) || (dateEntred.getTime() > dateToday.getTime())) {
+  if (isEmpty(form.birthdate) || (dateEntred.getTime() > dateToday.getTime())) {
     form.birthdate.parentNode.classList.add("error");
     return false;
   } else {
@@ -131,3 +140,46 @@ const validBirth = function() {
     return true;
   }
 };
+
+// Vérifier le champ quantity
+
+const validQuantity = function() {
+  if (isEmpty(form.quantity)) {
+    form.quantity.parentNode.classList.add("error");
+    return false;
+  } else {
+    form.quantity.parentNode.classList.remove("error");
+    return true;
+  }
+};
+
+// Vérifier les radios 
+
+const validRadio = function() {
+  var radios = form.location;
+
+  for (var radio of radios) {
+    if (isChecked(radio)){
+      document.querySelector(".formDataRadios").classList.remove("error");
+      return true;
+    }
+  }
+  document.querySelector(".formDataRadios").classList.add("error");
+  return false;
+};
+
+// Vérifier Checkbox
+console.log(document.getElementById("checkbox1").parentNode);
+
+const validCheckbox = function() {
+  var inputCheckbox = document.getElementById("checkbox1");
+
+  if(isChecked(inputCheckbox)) {
+    inputCheckbox.parentNode.classList.remove("error");
+    return true;
+  } else {
+    inputCheckbox.parentNode.classList.add("error");
+    return false;
+  }
+};
+

@@ -61,7 +61,6 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
             >
               <div
                 class="formData">
@@ -119,17 +118,20 @@
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" onblur="validQuantity()"
+                oninput="validQuantity()">
+                <span class="error-message">Veuillez saisir une valeur numérique.</span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
-                class="formData">
+                class="formData formDataRadios">
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
                   name="location"
                   value="New York"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -141,6 +143,7 @@
                   id="location2"
                   name="location"
                   value="San Francisco"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
@@ -152,6 +155,7 @@
                   id="location3"
                   name="location"
                   value="Seattle"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
@@ -163,6 +167,7 @@
                   id="location4"
                   name="location"
                   value="Chicago"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
@@ -174,6 +179,7 @@
                   id="location5"
                   name="location"
                   value="Boston"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
@@ -185,13 +191,14 @@
                   id="location6"
                   name="location"
                   value="Portland"
+                  onclick="validRadio()"
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <span class="error-message">Veuillez choisir une ville.</span>
               </div>
-
               <div
                 class="formData">
                 <input
@@ -199,12 +206,14 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
+                  onclick="validCheckbox()"
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <span class="error-message">Veuillez accepter les termes et conditions.</span>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
