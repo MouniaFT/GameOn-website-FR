@@ -202,7 +202,7 @@ input {
 }
 .text-control {
   margin: 0;
-  padding: 8px;
+  padding: 20px;
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
@@ -211,13 +211,14 @@ input {
 
 /* Afficher l'erreur */
 .error-message{
-  color: red;
-  font-size: 14px;
+  color: #FF4E60;
+  font-size: 12px;
   display: none;
+  margin-top: 5px;
 }
 
 .formData.error input{
-  border-color: red;
+  border: 2px solid #FF4E60;
 }
 
 .formData.error .error-message{
@@ -350,6 +351,56 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+.btn-submit:hover{
+  background: #3876ac;
+}
+
+/* Désactiver le bouton submit */
+.disabled{
+  pointer-events: none;
+}
+
+/* Effacer le contenu du formulaire */
+.form-remove{
+  display: none;
+}
+
+/* Afficher le message de succes et le boutton fermer */
+.success-content{
+  display: none;
+}
+
+.success-text{
+  color: #FFFFFF;
+  font-size: 36px;
+  max-width: 309px;
+  margin: auto;
+  text-align: center;
+}
+
+.success-btn{
+  background: #fe142f;
+  margin: 0 auto;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 82px;
+  cursor: pointer;
+  border: 0;
+}
+
+.success-btn:hover{
+  background: #3876ac;
+}
+
+.success-content.success {
+  display: flex;
+  flex-direction: column;
+  height: 675px;
+}
+
+
 /* custom select styles */
 .custom-select {
   position: relative;

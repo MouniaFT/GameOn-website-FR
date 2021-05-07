@@ -54,7 +54,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" onclick="modalClose()"></span>
           <div class="modal-body">
             <form
               id="form"
@@ -113,7 +113,7 @@
                   onblur="validBirth()"
                   oninput="validBirth()"
                 />
-                <span class="error-message">Veuillez entrer votre date de naissance valide.</span>
+                <span class="error-message">Veuillez entrer une date de naissance valide.</span>
               </div>
               <div
                 class="formData">
@@ -224,10 +224,13 @@
               <input
                 class="btn-submit"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
+            <div class="success-content">
+              <p class="success-text">Merci ! Votre réservation a été reçue.</p>
+              <button class="success-btn" onclick="modalClose()">Fermer</button>
+            </div>
           </div>
         </div>
       </div>

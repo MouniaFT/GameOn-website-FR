@@ -12,6 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("form");
+const btnSubmit = document.querySelector(".btn-submit");
+const modalSuccess = document.querySelector(".success-content");
 
 
 // launch modal event
@@ -23,22 +25,21 @@ function launchModal() {
 }
 
 // Fermer la modal 
-const btnClose = document.querySelector(".close");
-
-btnClose.addEventListener("click", function(){
+const modalClose = function(){
     modalbg.style.display = "none";
-});
+};
 
 // Ecouter l'évenement Submit
 form.addEventListener("submit" , function(e){
-  
+  e.preventDefault();
   if (validPrenom() && validNom() && validEmail() && validBirth() && validQuantity() && validRadio() && validCheckbox()){
-    form.submit();
+    btnSubmit.classList.remove("disabled");
+    form.classList.add("form-remove");
+    modalSuccess.classList.add("success");
   } else {
-    e.preventDefault();
-    alert("les champs ne sont valides")
+    // Désactiver le bouton submit
+    btnSubmit.classList.add("disabled");
   }
-  
 });   
 
 // Vérifier si l'input à au minimum 2 caractères
@@ -169,7 +170,6 @@ const validRadio = function() {
 };
 
 // Vérifier Checkbox
-console.log(document.getElementById("checkbox1").parentNode);
 
 const validCheckbox = function() {
   var inputCheckbox = document.getElementById("checkbox1");
