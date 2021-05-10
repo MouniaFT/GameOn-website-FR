@@ -29,17 +29,17 @@ const modalClose = function(){
     modalbg.style.display = "none";
 };
 
+
 // Ecouter l'évenement Submit
 form.addEventListener("submit" , function(e){
   e.preventDefault();
-  if (validPrenom() && validNom() && validEmail() && validBirth() && validQuantity() && validRadio() && validCheckbox()){
-    btnSubmit.classList.remove("disabled");
+  if (validPrenom()&& validNom() && validEmail() && validBirth() && validQuantity() && validRadio() && validCheckbox()){
     form.classList.add("form-remove");
     modalSuccess.classList.add("success");
   } else {
-    // Désactiver le bouton submit
-    btnSubmit.classList.add("disabled");
+    (validPrenom(),validNom(),validEmail(),validBirth(),validQuantity(),validRadio(),validCheckbox());
   }
+ 
 });   
 
 // Vérifier si l'input à au minimum 2 caractères
@@ -94,6 +94,7 @@ const validPrenom = function(){
     form.first.parentNode.classList.add("error");
     return false;
   }
+  
 
 };
 

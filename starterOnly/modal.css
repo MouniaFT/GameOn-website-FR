@@ -28,6 +28,7 @@ p {
 
 img {
   padding-right: 1rem;
+  padding-left: 10px;
 }
 
 .topnav {
@@ -43,7 +44,7 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #FF001B;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -68,11 +69,25 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1124px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    
+  }
+
+  .fa-bars:before{
+    font-size: 22px;
+  }
+
+  .header-logo{
+    width: 200px;
+    margin-top: 10px;
+  }
+
+  .header-logo img{
+    width: 100%;
   }
 }
 
@@ -97,7 +112,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -170,7 +184,7 @@ main {
 }
 
 .content {
-  margin: 5% auto;
+  margin: 10% auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -194,6 +208,7 @@ label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 10px;
 }
 input {
   padding: 8px;
@@ -350,6 +365,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+  transition: 0.2s;
 }
 
 .btn-submit:hover{
@@ -359,6 +375,7 @@ input[data-error]::after {
 /* Désactiver le bouton submit */
 .disabled{
   pointer-events: none;
+  opacity: 0.6;
 }
 
 /* Effacer le contenu du formulaire */
@@ -388,6 +405,7 @@ input[data-error]::after {
   padding: 12px 82px;
   cursor: pointer;
   border: 0;
+  transition: 0.2s;
 }
 
 .success-btn:hover{
@@ -546,6 +564,13 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media screen and (max-width: 1124px){
+  .hero-headline {
+    font-size: 80px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -554,7 +579,8 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
+    min-width: 100%;
   }
   .hero-content::after {
     content: unset;
@@ -563,12 +589,12 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 48px;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 20px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -579,9 +605,28 @@ footer {
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
+  .content{
+    margin: 15% auto;
+  }
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 380px){
+  .hero-headline {
+    font-size: 36px;
+  }
+
+  .hero-text {
+    font-size: 13px;
+    margin-top: 36px;
+  }
+
+  .content{
+    margin: 20% auto;
   }
 }
 
